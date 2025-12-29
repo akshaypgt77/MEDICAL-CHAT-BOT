@@ -1,0 +1,135 @@
+/* ---------- Global Reset ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------- Page Layout ---------- */
+body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #0f172a; /* Dark navy */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ---------- Chat Container ---------- */
+.chat-container {
+    width: 380px;
+    background-color: #020617;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* ---------- Header ---------- */
+.chat-header {
+    background-color: #020617;
+    color: #e5e7eb;
+    padding: 16px;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 600;
+    border-bottom: 1px solid #1e293b;
+}
+
+/* ---------- Disclaimer ---------- */
+.chat-disclaimer {
+    background-color: #020617;
+    color: #94a3b8;
+    font-size: 12px;
+    padding: 10px 14px;
+    text-align: center;
+    border-bottom: 1px solid #1e293b;
+}
+
+/* ---------- Chat Box ---------- */
+.chat-box {
+    flex: 1;
+    padding: 14px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: thin;
+    scrollbar-color: #334155 transparent;
+}
+
+/* Scrollbar (Webkit) */
+.chat-box::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background-color: #334155;
+    border-radius: 4px;
+}
+
+/* ---------- Messages ---------- */
+.user-message,
+.bot-message {
+    max-width: 75%;
+    padding: 10px 12px;
+    margin: 6px 0;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+/* User Message */
+.user-message {
+    background-color: #065f46;
+    color: #ecfdf5;
+    align-self: flex-end;
+}
+
+/* Bot Message */
+.bot-message {
+    background-color: #1e293b;
+    color: #e5e7eb;
+    align-self: flex-start;
+}
+
+/* ---------- Input Area ---------- */
+.chat-input {
+    display: flex;
+    border-top: 1px solid #1e293b;
+    background-color: #020617;
+}
+
+/* Text Input */
+.chat-input input {
+    flex: 1;
+    padding: 12px;
+    font-size: 14px;
+    background-color: #020617;
+    color: #e5e7eb;
+    border: none;
+    outline: none;
+}
+
+/* Placeholder */
+.chat-input input::placeholder {
+    color: #64748b;
+}
+
+/* Send Button */
+.chat-input button {
+    padding: 0 18px;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+/* Button Hover */
+.chat-input button:hover {
+    background-color: #1d4ed8;
+}

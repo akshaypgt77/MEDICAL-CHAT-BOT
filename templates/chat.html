@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Medical Chatbot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- IMPORTANT -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-header">🩺 Medical Chatbot</div>
+
+    <div class="chat-disclaimer">
+        Educational use only. Not a substitute for professional medical advice.
+    </div>
+
+    <div class="chat-box" id="chatBox">
+        <div class="bot-message">
+            Hello 👋 I am a medical information assistant. How can I help you?
+        </div>
+    </div>
+
+    <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Ask a medical question..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+function sendMessage() {
+    const input = document.getElementById("userInput");
+    const chatBox = document.getElementById("chatBox");
+    const message = input.value.trim();
+    if (!message) return;
+
+    chatBox.innerHTML += `<div class="user-message">${message}</div>`;
+    input.value = "";
+
+    fetch("/chat", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({question: message})
+    })
+    .then(res => res.json())
+    .then(data => {
+        chatBox.innerHTML += `<div class="bot-message">${data.answer}</div>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+    });
+}
+</script>
+
+</body>
+</html>

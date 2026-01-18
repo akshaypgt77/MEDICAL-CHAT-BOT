@@ -1,0 +1,5 @@
+FROM Python:3.10-slim-buster
+WORKDIR / app
+COPY . /app
+RUN pip install -r requirements.txt
+CMD ["pythons", "app-py"]

@@ -1,5 +1,9 @@
 FROM python:3.10-slim-buster
-WORKDIR / app
+
+WORKDIR /app
 COPY . /app
-RUN pip install -r requirements.txt
-CMD ["pythons", "app-py"]
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+EXPOSE 5000
+CMD ["python", "app.py"]
